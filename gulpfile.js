@@ -11,7 +11,9 @@ var imagemin = require('gulp-imagemin');
 // var nunjucksRender = require('gulp-nunjucks-render');
 var open = require('gulp-open');
 var refresh = require('gulp-refresh');
+var jsonServer = require("gulp-json-srv");
 
+var server = jsonServer.create();
 var bases = {
     app: 'app/',
     dist: 'dist/'
@@ -23,6 +25,13 @@ var paths = {
     html: ['index.html'],
     images: ['images/**/*.png']
 };
+
+// GULP JSON SERVER
+gulp.task("db", function() {
+    return gulp.src("app/data/data.json")
+        .pipe(server.pipe());
+});
+
 
 // GULP CONNECT
 gulp.task('connect', function() {
@@ -48,12 +57,12 @@ gulp.task('reload', function() {
 gulp.task('open', function() {
     var options = {
         uri: 'http://localhost:9000',
-        app: 'chrome'
+        app: 'chrome',
+
     };
     gulp.src('app/index.html')
         .pipe(open(options));
 });
-
 
 // TEMPLATING
 // gulp.task('nunjucks', function() {
@@ -139,10 +148,11 @@ gulp.task('copy', ['clean'], function() {
 });
 //watching for CHANGES
 gulp.task('watch', function() {
-    gulp.watch(['app/**/*.scss' ], ['dev_sass']);
+    gulp.watch(['app/**/*.scss'], ['dev_sass']);
     // gulp.watch(['app/**/*.nunjucks'], ['nunjucks']);
     // gulp.watch(['app/scripts/*.js','app/scripts/**/*.js'], ['dev_scripts']);
-    gulp.watch(['app/scripts/*.js','app/scripts/**/*.js'], ['dev_scripts']);
+    gulp.watch(["app/data/data.json"], ["db"]);
+    gulp.watch(['app/scripts/*.js', 'app/scripts/**/*.js'], ['dev_scripts']);
     gulp.watch(['app/*.html']);
     refresh.listen();
 });
@@ -150,7 +160,7 @@ gulp.task('watch', function() {
 
 // Running developmen task
 // gulp.task('default', ['connect', 'dev_scripts', 'dev_imagemin', 'dev_sass', 'nunjucks', 'open', 'watch']);
-gulp.task('default', ['connect', 'dev_scripts', 'dev_sass', 'open', 'watch']);
+gulp.task('default', ['db', 'connect', 'dev_scripts', 'dev_sass', 'open', 'watch']);
 
 
 // Creating 'dist' folder
