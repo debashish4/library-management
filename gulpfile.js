@@ -21,7 +21,7 @@ var bases = {
 var paths = {
     scripts: ['scripts/main.js', '!scripts/app.js', '!scripts/libs/**/*.js'],
     libs: ['scripts/libs/jquery/dist/jquery.js'],
-    styles: ['styles/**/*.scss'],
+    styles: ['styles/app.scss'],
     html: ['index.html'],
     images: ['images/**/*.png']
 };
