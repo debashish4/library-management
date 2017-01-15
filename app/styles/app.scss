@@ -1,0 +1,12 @@
+
+// COMMON
+@import 'common/variables';
+@import 'common/global-styles';
+@import 'common/helper-styles';
+@import 'common/mixins';
+
+
+// COMPONENTS
+@import 'components/login';
+@import 'components/admin-dashboard';
+@import 'components/user-dashboard';

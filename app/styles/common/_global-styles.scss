@@ -1,0 +1,23 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+div[ui-view]{
+	height:100%;
+}
+
+
+html {
+    font-size: 10px;
+}
+
+body {
+	background: url('../images/handmadepaper.png') repeat;
+    position: relative; 
+    font-size: 1.6rem;
+}
+
+.container {
+    position: absolute;
+}

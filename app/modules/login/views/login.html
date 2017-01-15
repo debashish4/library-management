@@ -1,1 +1,35 @@
-<p>login component</p>
+<section class="full-height">
+    <div class="full-height" layout="row" layout-align="center center" ng-cloak>
+        <div class="login" flex="40" md-whiteframe="2" layout="row" layout-padding>
+            <form name="loginAuth" flex="100">
+                <md-input-container class="md-block">
+                    <label>Name</label>
+                    <input required name="name" ng-model="login.name">
+                    <div ng-messages="loginAuth.name.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Login As</label>
+                    <md-select ng-model="login.loginAs">
+                        <md-option ng-repeat="privilege in login.loginPrivileges" ng-value="privilege">
+                            {{privilege}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Password</label>
+                    <input required name="password" ng-model="login.password">
+                    <div ng-messages="loginAuth.password.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+                <section layout="row" layout-sm="row" layout-align="end center" layout-wrap>
+                  
+                    <md-button ng-click="resetDetails()">Cancel</md-button>
+                    <md-button class="md-raised md-primary" ng-click="authenticateDetails()">Submit</md-button>
+                </section>
+            </form>
+        </div>
+    </div>
+</section>

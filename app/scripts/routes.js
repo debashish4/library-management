@@ -5,6 +5,7 @@ function routes($stateProvider, $urlRouterProvider, $locationProvider) {
         .state('login', {
             url: '/login',
             controller: 'loginController',
+            controllerAs: 'login',
             templateUrl: 'modules/login/views/login.html'
         })
         .state('admin', {

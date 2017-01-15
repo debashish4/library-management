@@ -1,2 +1,40 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+div[ui-view] {
+  height: 100%; }
+
+html {
+  font-size: 10px; }
+
+body {
+  background: url("../images/handmadepaper.png") repeat;
+  position: relative;
+  font-size: 1.6rem; }
+
+.container {
+  position: absolute; }
+
+.full-height {
+  height: 100%; }
+
+.full-width {
+  height: 100%; }
+
+.viewport-height {
+  height: 100vh; }
+
+.viewport-width {
+  width: 100vw; }
+
+.login {
+  background: white; }
+
+.admin-dashboard {
+  background: yellow; }
+
+.user-dashboard {
+  background: green; }
 
 /*# sourceMappingURL=maps/app.css.map */
