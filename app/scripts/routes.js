@@ -11,6 +11,7 @@ function routes($stateProvider, $urlRouterProvider, $locationProvider) {
         .state('admin', {
             url: '/admin',
             controller: 'adminController',
+            controllerAs: 'admin',
             templateUrl: 'modules/admin/views/admin.html'
         })
 

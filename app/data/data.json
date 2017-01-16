@@ -1,8 +1,12 @@
 {
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
-  ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ]
+    "posts": [
+        { "id": 1, "posts": "json-server", "author": "typicode" }
+    ],
+    "comments": [
+        { "id": 2, "body": "some comment", "postId": 1 }
+    ],
+    "user": [
+        { "name": "debashish", "password": "test1", "type": "student" },
+        { "name": "guddu", "password": "test2", "type": "admin" }
+    ]
 }
