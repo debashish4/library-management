@@ -11,10 +11,13 @@
                 </md-input-container>
                 <md-input-container class="md-block">
                     <label>Login As</label>
-                    <md-select ng-model="login.loginAs" required>
+                    <md-select ng-model="login.loginAs" name="privilege" required>
                         <md-option ng-repeat="privilege in login.loginPrivileges" ng-value="privilege">
                             {{privilege}}
                         </md-option>
+                        <div ng-messages="loginAuth.privilege.$error">
+                            <p ng-message="required">Please select</p>
+                        </div>
                     </md-select>
                 </md-input-container>
                 <md-input-container class="md-block">
@@ -26,7 +29,7 @@
                 </md-input-container>
                 <section layout="row" layout-sm="row" layout-align="end center" layout-wrap>
                     <md-button ng-click="login.resetDetails()">Reset</md-button>
-                    <md-button class="md-raised md-primary" ng-click="login.authenticateDetails(login.username,login.loginAs, login.password )">Submit</md-button>
+                    <md-button class="md-raised md-primary" type="submit" ng-click="login.authenticateDetails(login.username,login.loginAs, login.password )">Submit</md-button>
                     <div ng-show='login.showErrMsg'>Please Enter Correct Credentials</div>
                 </section>
             </form>
