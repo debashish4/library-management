@@ -2,13 +2,20 @@
 
 	loginModuleController.controller('loginController', function($scope, authService) {
 	    var vm = this;
-	    vm.loginPrivileges = ['Admin', 'Student'];
+	    vm.loginPrivileges = ['admin', 'student'];
 	    vm.loginAs = "";
 	    vm.password = null;
 
 
-	    vm.authenticateDetails = function(username, password) {
-	        authService.authenticateLogin(username, password);
+	    vm.authenticateDetails = function(username, type, password) {
+	        // username = username.toLowerCase();
+	        // type = type.toLowerCase();
+	        var result = authService.authenticateLogin(username, type, password).then(function(){
+	        	vm.showErrMsg = true;
+	        }, function(){
+	        	console.log("SDf2");	
+	        });
+
 	    }
 
 

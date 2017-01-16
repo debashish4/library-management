@@ -25,12 +25,11 @@
                     </div>
                 </md-input-container>
                 <section layout="row" layout-sm="row" layout-align="end center" layout-wrap>
-                  
                     <md-button ng-click="login.resetDetails()">Reset</md-button>
-                    <md-button class="md-raised md-primary" ng-click="login.authenticateDetails(login.username,login.password )">Submit</md-button>
+                    <md-button class="md-raised md-primary" ng-click="login.authenticateDetails(login.username,login.loginAs, login.password )">Submit</md-button>
+                    <div ng-show='login.showErrMsg'>Please Enter Correct Credentials</div>
                 </section>
             </form>
         </div>
     </div>
 </section>
-
