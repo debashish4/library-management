@@ -2,7 +2,7 @@
 
 	loginModuleController.controller('loginController', function($scope, authService) {
 	    var vm = this;
-	    vm.loginPrivileges = ['admin', 'student'];
+	    vm.loginPrivileges = ['admin', 'user'];
 	    vm.loginAs = "";
 	    vm.password = null;
 

@@ -6,7 +6,7 @@
         { "id": 2, "body": "some comment", "postId": 1 }
     ],
     "user": [
-        { "name": "debashish", "password": "test1", "type": "student" },
-        { "name": "guddu", "password": "test2", "type": "admin" }
+        { "name": "debashish", "password": "deb", "type": "admin" },
+        { "name": "guddu", "password": "gud", "type": "user" }
     ]
 }

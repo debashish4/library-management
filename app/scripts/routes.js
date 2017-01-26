@@ -14,7 +14,13 @@ function routes($stateProvider, $urlRouterProvider, $locationProvider) {
             controllerAs: 'admin',
             templateUrl: 'modules/admin/views/admin.html'
         })
+        .state('user', {
+            url: '/user',
+            controller: 'userController',
+            controllerAs: 'user',
+            templateUrl: 'modules/user/views/user.html'
+        })
 
-        $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/login');
 
 }
