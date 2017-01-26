@@ -153,7 +153,7 @@ gulp.task('watch', function() {
     gulp.watch(['app/**/*.scss'], ['dev_sass']);
     // gulp.watch(['app/**/*.nunjucks'], ['nunjucks']);
     // gulp.watch(['app/scripts/*.js','app/scripts/**/*.js'], ['dev_scripts']);
-    gulp.watch(["app/data/data.json"], ["db"]);
+    gulp.watch(["app/data/db.json"], ["db"]);
     gulp.watch(['app/scripts/*.js', 'app/scripts/**/*.js'], ['dev_scripts']);
     gulp.watch(['app/*.html']);
     refresh.listen();

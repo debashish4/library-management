@@ -7,7 +7,7 @@
     ],
     "user": [
         { "name": "debashish", "password": "deb", "type": "admin" },
-        { "name": "guddu", "password": "gud", "type": "user" }
+        { "name": "guddu", "password": "gud", "type": "user" },
         { "name": "archana", "password": "arch", "type": "user" }
     ]
 }
