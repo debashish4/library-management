@@ -31,6 +31,16 @@ body {
 .login {
   background: white; }
 
+.carousel {
+  width: 100%;
+  overflow-x: scroll; }
+  .carousel .carousel-item {
+    width: 120px;
+    margin: 10px;
+    display: inline-block; }
+    .carousel .carousel-item img {
+      width: 100%; }
+
 .admin-dashboard {
   background: yellow; }
 
