@@ -12,6 +12,7 @@ var imagemin = require('gulp-imagemin');
 var open = require('gulp-open');
 var refresh = require('gulp-refresh');
 var jsonServer = require("gulp-json-srv");
+var wait = require('gulp-wait')
 
 var server = jsonServer.create();
 var bases = {
@@ -28,7 +29,7 @@ var paths = {
 
 // GULP JSON SERVER
 gulp.task("db", function() {
-    return gulp.src("app/data/data.json")
+    return gulp.src("app/data/db.json")
         .pipe(server.pipe());
 });
 
@@ -81,7 +82,7 @@ gulp.task('dev_scripts', function() {
     gulp.src(paths.scripts, { cwd: bases.app })
         // .pipe(concat('app.js'))
         // .pipe(gulp.dest(bases.app + 'scripts/'))
-        .pipe(refresh());
+        // .pipe(refresh());
 });
 
 
@@ -89,11 +90,12 @@ gulp.task('dev_scripts', function() {
 //Converting sass file to css
 gulp.task('dev_sass', function() {
     gulp.src(paths.styles, { cwd: bases.app })
+        .pipe(wait(500))
         .pipe(sourcemaps.init())
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest(bases.app + 'styles/'))
-        .pipe(refresh());
+        // .pipe(refresh());
 });
 
 
