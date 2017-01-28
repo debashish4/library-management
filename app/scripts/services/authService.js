@@ -7,7 +7,7 @@ function authService($http, $state, $q) {
             .then(function(response) {
                 if (!response.data.length) {
                     console.log(response);
-                    console.log("not matched2");
+                    console.log("not data in response");
                     deferred.resolve();
                 } else if (response.data[0].password === password && response.data[0].type === type) {
                     console.log("matched");
