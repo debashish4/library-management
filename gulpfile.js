@@ -11,10 +11,10 @@ var imagemin = require('gulp-imagemin');
 // var nunjucksRender = require('gulp-nunjucks-render');
 var open = require('gulp-open');
 var refresh = require('gulp-refresh');
-var jsonServer = require("gulp-json-srv");
-var wait = require('gulp-wait')
+var wait = require('gulp-wait');
+var exec = require('child_process').exec;
 
-var server = jsonServer.create();
+// var server = jsonServer.create();
 var bases = {
     app: 'app/',
     dist: 'dist/'
@@ -28,10 +28,17 @@ var paths = {
 };
 
 // GULP JSON SERVER
-gulp.task("db", function() {
-    return gulp.src("app/data/db.json")
-        .pipe(server.pipe());
-});
+gulp.task('json-server', function(cb) {
+    console.log(" Json-server running at 'localhost:3000' ");
+    exec('json-server --watch "app/data/db.json"', function(err, stdout, stderr) {
+        console.log("Wait! There is error: ", err);
+        console.log(stderr);
+
+        cb(err);
+    });
+})
+
+
 
 
 // GULP CONNECT
@@ -41,7 +48,7 @@ gulp.task('connect', function() {
         livereload: true,
         port: 9000,
         open: {
-            browser: 'chrome' // if not working OS X browser: 'Google Chrome'
+            browser: 'chrome'
         }
     });
 });
@@ -153,7 +160,7 @@ gulp.task('watch', function() {
     gulp.watch(['app/**/*.scss'], ['dev_sass']);
     // gulp.watch(['app/**/*.nunjucks'], ['nunjucks']);
     // gulp.watch(['app/scripts/*.js','app/scripts/**/*.js'], ['dev_scripts']);
-    gulp.watch(["app/data/db.json"], ["db"]);
+    // gulp.watch(["app/data/db.json"], ["db"]);
     gulp.watch(['app/scripts/*.js', 'app/scripts/**/*.js'], ['dev_scripts']);
     gulp.watch(['app/*.html']);
     refresh.listen();
@@ -162,7 +169,7 @@ gulp.task('watch', function() {
 
 // Running developmen task
 // gulp.task('default', ['connect', 'dev_scripts', 'dev_imagemin', 'dev_sass', 'nunjucks', 'open', 'watch']);
-gulp.task('default', ['db', 'connect', 'dev_scripts', 'dev_sass', 'open', 'watch']);
+gulp.task('default', ['connect', 'dev_scripts', 'dev_sass', 'open', 'watch', 'json-server']);
 
 
 // Creating 'dist' folder

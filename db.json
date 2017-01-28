@@ -1,0 +1,38 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "Add a post t1o the blog about Angular2",
+      "dueDate": "2015-05-23T18:25:43.511Z",
+      "done": false,
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "tst": "tst1111",
+      "id": 4
+    },
+    {
+      "title": "debash",
+      "dueDate": "2015-05-23T18:25:43.511Z",
+      "done": false,
+      "id": 5
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
