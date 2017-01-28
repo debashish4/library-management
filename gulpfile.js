@@ -14,7 +14,6 @@ var refresh = require('gulp-refresh');
 var wait = require('gulp-wait');
 var exec = require('child_process').exec;
 
-// var server = jsonServer.create();
 var bases = {
     app: 'app/',
     dist: 'dist/'

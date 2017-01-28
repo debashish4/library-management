@@ -1,18 +1,19 @@
-	var loginModuleController = angular.module('loginModule');
+	var registerModuleController = angular.module('registerModule');
 
-	loginModuleController.controller('loginController', function($scope, authService) {
+	registerModuleController.controller('registerController', function($scope, authService) {
 	    var vm = this;
 	    vm.loginPrivileges = ['admin', 'user'];
 	    vm.loginAs = "";
 	    vm.password = null;
 
 
-	    vm.authenticateDetails = function(username, type, password) {
-	        var result = authService.authenticateLogin(username, type, password).then(function(){
+	    vm.registerDetails = function(username, type, password) {
+	        var result = authService.createUser(username, type, password).then(function(){
 	        	vm.showErrMsg = true;
 	        }, function(){
 	        	console.log("SDf2");	
 	        });
+
 	    }
 
 

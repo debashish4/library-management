@@ -8,6 +8,12 @@ function routes($stateProvider, $urlRouterProvider, $locationProvider) {
             controllerAs: 'login',
             templateUrl: 'modules/login/views/login.html'
         })
+        .state('register', {
+            url: '/register',
+            controller: 'registerController',
+            controllerAs: 'register',
+            templateUrl: 'modules/register/views/register.html'
+        })
         .state('admin', {
             url: '/admin',
             controller: 'adminController',
@@ -19,6 +25,12 @@ function routes($stateProvider, $urlRouterProvider, $locationProvider) {
             controller: 'userController',
             controllerAs: 'user',
             templateUrl: 'modules/user/views/user.html'
+        })
+        .state('success', {
+            url: '/success',
+            controller: 'successController',
+            controllerAs: 'success',
+            templateUrl: 'modules/success/views/success.html'
         })
 
     $urlRouterProvider.otherwise('/login');

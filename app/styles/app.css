@@ -28,7 +28,10 @@ body {
 .viewport-width {
   width: 100vw; }
 
-.login {
+.text-center {
+  text-align: center; }
+
+.form-3 {
   background: white; }
 
 .carousel {
