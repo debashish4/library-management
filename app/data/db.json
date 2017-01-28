@@ -88,27 +88,21 @@
   "user": [
     {
       "id": 1,
-      "name": "debashish",
+      "username": "debashish",
       "password": "deb",
       "type": "admin"
     },
     {
       "id": 2,
-      "name": "guddu",
+      "username": "guddu",
       "password": "gud",
       "type": "user"
     },
     {
       "id": 3,
-      "name": "archana",
+      "username": "archana",
       "password": "arch",
       "type": "user"
-    },
-    {
-      "title": "wow",
-      "dueDate": "2015-05-23T18:25:43.511Z",
-      "done": false,
-      "id": 4
     },
     {
       "username": "newuser4",
