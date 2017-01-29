@@ -1,25 +1,37 @@
 angular.module('loginModule').service('authService', authService)
 
-function authService($http, $state, $q) {
+function authService($http, $state, $q, $rootScope, $cookieStore) {
+
+    this.test = function(data){
+        console.log("data", data);
+    }
     this.authenticateLogin = function(username, type, password) {
         var deferred = $q.defer();
         $http.get("http://localhost:3000/user?username=" + username)
             .then(function(response) {
-                if (!response.data.length) {
+                var data = response.data;
+                if (!data.length) {
                     console.log(response);
                     console.log("not data in response");
-                    deferred.resolve();
-                } else if (response.data[0].password === password && response.data[0].type === type) {
+                    deferred.reject();
+                } else if (data[0].password === password && data[0].type === type) {
                     console.log("matched");
                     if (type === "user") {
+                        $rootScope.loggedInUser = data;
+                        console.log($rootScope.loggedInUser);                        
                         $state.go('user');
+                        return $rootScope.loggedInUser;
                     } else {
+                        $rootScope.loggedInAdmin = data;
+                        $cookieStore.put('loggedInAdmin', $rootScope.loggedInAdmin);
                         $state.go('admin');
+                         return $rootScope.loggedInAdmin;
                     }
+                    deferred.resolve();
 
                 }
             }, function() {
-                console.log("not matched");
+                console.log("no response");
             });
         return deferred.promise;
     };
@@ -39,7 +51,7 @@ function authService($http, $state, $q) {
             .then(function(response) {
                 var data = response.data;
                 if (data.id) {
-                    $state.go('success'); 
+                    $state.go('success');
                     console.log("post succueful");
                     deferred.resolve();
                 } else {
@@ -50,6 +62,6 @@ function authService($http, $state, $q) {
             }, function() {
                 console.log("not matched");
             });
-    return deferred.promise;
+        return deferred.promise;
     };
 }

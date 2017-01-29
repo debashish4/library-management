@@ -7,4 +7,4 @@ Library Management system using angular for education purpose
 
 * Download/clone the repo
 * Run `npm install`
-* Run `gulp` and navigate to `http://localhost:9000` to view the pages
+* Run `gulp` and navigate to `http://localhost:9000` to view the Application

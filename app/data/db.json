@@ -1,89 +1,11 @@
 {
-  "posts": [
+  "userdata": [
     {
       "id": 1,
       "posts": "json-server",
-      "author": "typicode"
-    },
-    {
-      "title": "wow",
-      "dueDate": "2015-05-23T18:25:43.511Z",
-      "done": false,
-      "id": 2
-    },
-    {
-      "username": "newuser1",
-      "type": "admin",
-      "password": "newuser1",
-      "id": 3
-    },
-    {
-      "username": "newuser1",
-      "type": "admin",
-      "password": "newuser1",
-      "id": 4
-    },
-    {
-      "username": "newuser1",
-      "type": "admin",
-      "password": "newuser1",
-      "id": 5
-    },
-    {
-      "username": "newuser1",
-      "type": "admin",
-      "password": "newuser1",
-      "id": 6
-    },
-    {
-      "username": "newuser1",
-      "type": "admin",
-      "password": "newuser1",
-      "id": 7
-    },
-    {
-      "username": "newuser1",
-      "type": "admin",
-      "password": "newuser1",
-      "id": 8
-    },
-    {
-      "username": "newuser1",
-      "type": "admin",
-      "password": "newuser1",
-      "id": 9
-    },
-    {
-      "username": "newuser1",
-      "type": "admin",
-      "password": "newuser1",
-      "id": 10
-    },
-    {
-      "username": null,
-      "type": null,
-      "password": null,
-      "id": 11
-    },
-    {
-      "username": "newuser2",
-      "type": "user",
-      "password": "123",
-      "id": 12
-    },
-    {
-      "title": "wow",
-      "dueDate": "2015-05-23T18:25:43.511Z",
-      "done": false,
-      "id": 13
+      "info": "debashish"
     }
-  ],
-  "comments": [
-    {
-      "id": 2,
-      "body": "some comment",
-      "postId": 1
-    }
+    
   ],
   "user": [
     {
@@ -109,36 +31,6 @@
       "type": "admin",
       "password": "123",
       "id": 5
-    },
-    {
-      "username": "newuser5",
-      "type": "admin",
-      "password": "123",
-      "id": 6
-    },
-    {
-      "username": "newuser5",
-      "type": "admin",
-      "password": "123",
-      "id": 7
-    },
-    {
-      "username": "newuser5",
-      "type": "admin",
-      "password": "123",
-      "id": 8
-    },
-    {
-      "username": "newuser2",
-      "type": "admin",
-      "password": "123",
-      "id": 9
-    },
-    {
-      "username": "newuser7",
-      "type": "admin",
-      "password": "123",
-      "id": 10
     }
   ]
 }

@@ -8,11 +8,7 @@
 
 
 	    vm.authenticateDetails = function(username, type, password) {
-	        var result = authService.authenticateLogin(username, type, password).then(function(){
-	        	vm.showErrMsg = true;
-	        }, function(){
-	        	console.log("SDf2");	
-	        });
+	        var result = authService.authenticateLogin(username, type, password);
 	    }
 
 
