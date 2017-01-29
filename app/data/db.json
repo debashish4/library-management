@@ -2,10 +2,9 @@
   "userdata": [
     {
       "id": 1,
-      "posts": "json-server",
-      "info": "debashish"
-    }
-    
+      "name": "debashish",
+      "type": "admin"
+    }    
   ],
   "user": [
     {

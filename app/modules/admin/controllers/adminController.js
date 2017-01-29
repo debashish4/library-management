@@ -13,8 +13,15 @@
 	    $cookieStore.get('loggedInAdmin');
 	    var loggedInAdmin = $cookieStore.get('loggedInAdmin');
 	      vm.profileData = candidateDataService.fetchData(loggedInAdmin).then(function(){
-	      		console.log("success", $rootScope.loggedinUserData);
+	      		vm.userData = $rootScope.loggedinUserData;
+	      		console.log(vm.userData);
+	      		vm.userName = vm.userData.name;
+	      		vm.userType = vm.userData.type;
 	      }, 
+
+
+
+
 	      function(){
 	      		console.log("error");
 	      });
