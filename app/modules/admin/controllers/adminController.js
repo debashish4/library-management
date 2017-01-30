@@ -1,6 +1,6 @@
 	var adminModuleController = angular.module('adminModule');
 
-	adminModuleController.controller('adminController', function($scope, $rootScope, $mdSidenav, $log, $cookieStore, $q, candidateDataService) {
+	adminModuleController.controller('adminController', function($scope, $state, $rootScope, $mdSidenav, $log, $cookieStore, $q, candidateDataService) {
 	    vm = this;
 	    vm.close = function() {
 	        // Component lookup should always be available since we are not using `ng-if`
@@ -12,20 +12,21 @@
 
 	    $cookieStore.get('loggedInAdmin');
 	    var loggedInAdmin = $cookieStore.get('loggedInAdmin');
-	      vm.profileData = candidateDataService.fetchData(loggedInAdmin).then(function(){
-	      		vm.userData = $rootScope.loggedinUserData;
-	      		console.log(vm.userData);
-	      		vm.userName = vm.userData.name;
-	      		vm.userType = vm.userData.type;
-	      }, 
+	    vm.profileData = candidateDataService.fetchData(loggedInAdmin).then(function() {
+	        if (loggedInAdmin) {
+	            vm.userData = {};
+	            vm.userData = $rootScope.loggedinUserData;
+	            vm.userName = vm.userData.name;
+	            vm.userType = vm.userData.type;
+	        } else {
+	            $state.go('login');
+	        }
+	    });
 
 
 
 
-	      function(){
-	      		console.log("error");
-	      });
-	      console.log("vm.profileData", vm.profileData)
+
 
 
 	    vm.toggleLeft = buildToggler('left');

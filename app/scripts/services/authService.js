@@ -2,7 +2,7 @@ angular.module('loginModule').service('authService', authService)
 
 function authService($http, $state, $q, $rootScope, $cookieStore) {
 
-    this.test = function(data){
+    this.test = function(data) {
         console.log("data", data);
     }
     this.authenticateLogin = function(username, type, password) {
@@ -17,15 +17,15 @@ function authService($http, $state, $q, $rootScope, $cookieStore) {
                 } else if (data[0].password === password && data[0].type === type) {
                     console.log("matched");
                     if (type === "user") {
-                        $rootScope.loggedInUser = data;
-                        console.log($rootScope.loggedInUser);                        
+                        var loggedInUser = data;
+                        console.log($rootScope.loggedInUser);
                         $state.go('user');
-                        return $rootScope.loggedInUser;
+                        return;
                     } else {
-                        $rootScope.loggedInAdmin = data;
-                        $cookieStore.put('loggedInAdmin', $rootScope.loggedInAdmin);
+                        var loggedInAdmin = data;
+                        $cookieStore.put('loggedInAdmin', loggedInAdmin);
                         $state.go('admin');
-                         return $rootScope.loggedInAdmin;
+                        return;
                     }
                     deferred.resolve();
 
