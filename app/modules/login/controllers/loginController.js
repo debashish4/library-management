@@ -7,7 +7,6 @@
 	    vm.loginAs = "";
 	    vm.password = null;
 
-
 	    vm.authenticateDetails = function(username, type, password) {
 	        var result = authService.authenticateLogin(username, type, password);
 	    }

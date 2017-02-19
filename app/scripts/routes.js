@@ -18,7 +18,17 @@ function routes($stateProvider, $urlRouterProvider, $locationProvider) {
             url: '/admin',
             controller: 'adminController',
             controllerAs: 'admin',
-            templateUrl: 'modules/admin/views/admin.html'
+            templateUrl: 'modules/admin/views/admin.html',
+            resolve: {
+                user: function($rootScope, $q, $cookieStore){
+                    console.log($rootScope.loggedinUserData);
+                    var loggedInAdmin = $cookieStore.get('loggedInAdmin');
+                    if(!loggedInAdmin){
+                        console.log("Sdf");
+                        return $q.reject({unAuthorized:true}) ;
+                    }
+                }
+            }
         })
         .state('user', {
             url: '/user',

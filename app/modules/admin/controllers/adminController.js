@@ -13,10 +13,10 @@
 	    $cookieStore.get('loggedInAdmin');
 	    var loggedInAdmin = $cookieStore.get('loggedInAdmin');
 
-	    if(!loggedInAdmin){
-	    	 $state.go('login');
-	    	 return;
-	    }
+	    // if(!loggedInAdmin){
+	    // 	 $state.go('login');
+	    // 	 return;
+	    // }
 	    vm.profileData = candidateDataService.fetchData(loggedInAdmin).then(function() {
 	        if (loggedInAdmin) {
 	            vm.userData = {};
@@ -24,8 +24,12 @@
 	            vm.userName = vm.userData.name;
 	            vm.userType = vm.userData.type;
 	        } else {
-	           
+	           $state.go('login');
 	        }
+	    }, function(){
+	    	console.log("cannot fetch")
+	    }).catch(function(){
+	    	console.log("error")
 	    });
 
 

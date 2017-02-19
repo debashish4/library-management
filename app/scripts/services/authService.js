@@ -1,10 +1,6 @@
 angular.module('loginModule').service('authService', authService)
 
-function authService($http, $state, $q, $rootScope, $cookieStore) {
-
-    this.test = function(data) {
-        console.log("data", data);
-    }
+function authService($http, $state, $q, $rootScope, $cookieStore, setterGetter) {
     this.authenticateLogin = function(username, type, password) {
         var deferred = $q.defer();
         $http.get("http://localhost:3000/user?username=" + username)
@@ -18,12 +14,12 @@ function authService($http, $state, $q, $rootScope, $cookieStore) {
                     console.log("matched");
                     if (type === "user") {
                         var loggedInUser = data;
-                        console.log($rootScope.loggedInUser);
                         $state.go('user');
                         return;
                     } else {
                         var loggedInAdmin = data;
-                        $cookieStore.put('loggedInAdmin', loggedInAdmin);
+                        $cookieStore.put("loggedInAdmin",loggedInAdmin);
+                        // setterGetter.loggedInAdmin(loggedInAdmin);
                         $state.go('admin');
                         return;
                     }
@@ -64,4 +60,9 @@ function authService($http, $state, $q, $rootScope, $cookieStore) {
             });
         return deferred.promise;
     };
+
+        this.loginDetail = function(){
+            var loginDetail = $rootScope.loggedinUserData
+        return loginDetail;
+    }
 }
